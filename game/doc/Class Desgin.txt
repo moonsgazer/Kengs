@@ -1,0 +1,45 @@
+-----------------------------------
+Class
+	   							Main
+	   							  |
+Sences---EngineStatusAbstract--Engine
+						        /	\
+						       /	 \ 
+						      /	      \
+						    Stage	  Pack
+						    /
+				StageStatusAbstract
+            
+            
+-------------------------------------
+
+1.数据 Pack
+2.状态 Stage Single
+3.执行者 Engine Single
+4.外部部件 UI
+-------------------------------------
+public Long packID;
+public String resID;
+public String senceID
+
+-------------------------------------
+Pack结构:
+	Node:
+		XXXNode
+	NodeArray:
+	BaseInfo:
+	
+---------------------------------------
+Stage结构：
+	StageConfig
+	Stage -> Sence(NodeArray)
+	
+---------------------------------------
+Engine:
+  Executor
+  Programm Management
+  MainLoop
+  EventType
+  Scence Switch
+  Node logic
+  Handler

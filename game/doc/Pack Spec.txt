@@ -1,0 +1,65 @@
+//Gal 包裹的规则,这里只是具体文件的细节，程序里提供的api不应该依赖于这个。
+
+包裹为json格式
+
+Sence场景
+	-主内容
+	-UI控制层
+	
+###############################################################	
+UI控制层
+主内容是无法交互的，只响应点击，并且点击动作由UI控制层传递。
+但是主内容中允许有UI交互节点，代表主内容对控制层的调用。（选项Etc）
+
+###############################################################
+主内容（Array）：
+属性:
+	type:TEXT：文字节点
+	type:Graphics:图形节点
+	type:Media:媒体节点
+	type:Contorl:控制节点
+	type:UI:UI交互节点
+	
+文字节点://////////////////////////////////////////////////////
+	action:click:点击节点,对应一次动作，相当于一次点击
+	action:page:翻页节点,对应一次翻页，同时等于一次点击
+	config:id,resID
+	
+图片节点：//////////////////////////////////////////////////////
+	action:show:显示图形
+	config:id,resID，坐标
+	
+	action:hide:不显示图形
+	config:id,resID,是否移除,默认是
+
+媒体节点：//////////////////////////////////////////////////////
+	action:play:播放
+	config:id,soundID,开始时间，时长,loop
+
+	action:stop:暂停播放
+	config:id,resID,是否移除,默认是
+		
+控制节点：//////////////////////////////////////////////////////
+	action:stop:停止，消耗一次点击
+	
+	action：goto:跳转到目标节点行数
+	config:index
+	
+UI交互节点：//////////////////////////////////////////////////////
+	action:selection:选项UI
+	config：options:[value：a,text:"选项A"]
+	
+解释：
+id:在所有节点内的id，
+resID：主要内容的资源id
+	
+例子：
+[
+{Text,action:click,config:{resID:1,id:1}},
+{Text,action:click,config:{resID:2,id:2}},
+{Text,action:page,config:{resID:3,id:3}},
+{Graphics,action:show,config:{id:black,resID:4}},
+{Media,action:play,config:{id:opening,resID:5}},
+{Text,action:click,config:{resID:6,id:6}}
+]
+###############################################################

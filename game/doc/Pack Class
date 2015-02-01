@@ -1,0 +1,13 @@
+Pack 一个游戏内容对象
+  -基本信息
+  -资源
+  -节点Array
+  
+BaseInfo 
+
+Node
+  -	type:TEXT：文字节点
+	type:Graphics:图形节点
+	type:Media:媒体节点
+	type:Contorl:控制节点
+	type:UI:UI交互节点
